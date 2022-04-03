@@ -1,6 +1,8 @@
 import os
 import sys#import使用
 print(os.listdir("."))#查看当前路径下文件
+# 不会使用变量
+print(os.listdir.__doc__)#用来查询listdir怎么使用，就是和linux 里面的man一样
 #基本数据类型
 #int,float,str,list,dict,set,tuple,bool
 a=True
