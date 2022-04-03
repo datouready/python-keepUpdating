@@ -2,7 +2,9 @@ import os
 import sys#import使用
 print(os.listdir("."))#查看当前路径下文件
 #基本数据类型
-#int,float,str,list,dict,set,tuple
+#int,float,str,list,dict,set,tuple,bool
+a=True
+
 a=123
 a=int("123")
 b=123.
@@ -15,7 +17,7 @@ d=list()
 d=[]
 e=dict()
 e={}#hashmap
-f=set()
+f=set()#有点冷门，意思是去重用
 g=tuple()
 
 #print输出
@@ -38,6 +40,10 @@ c=a[:-3]
 p=a.find("c")#返回c的位置
 array=a.split("c")#分割，返回["ab","def"]
 print(array)
+b.append(333)
+print(b)
+b.pop(-1)
+print(b)
 
 #dict
 m=dict()
@@ -45,6 +51,7 @@ m={}
 m={"name":"xiaoming","age":13}
 print(m["name"])
 
+#tuple
 t=(1,2)#中括号是list,小括号是元组
 #t[0]=123 不可以的，元组的元素是不能更改
 t=list(t)
@@ -54,4 +61,3 @@ print(type(t))#类型为元组
 #如果将逗号去掉
 t=(1)
 print(type(t))#类型为int
-12
