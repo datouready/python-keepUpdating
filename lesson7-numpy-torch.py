@@ -30,9 +30,9 @@ k=e[[0,2],:]#选取第0行，第2行所有列
 import torch
 
 a=torch.tensor([1,2,3],dtype=torch.float32)
-print(torch.tensor.__doc__)#查看使用方法
+# print(torch.tensor.__doc__)#查看使用方法
 
-print(a,a.shape,a.dtype,a.size())#属性不用加(),函数需要加(),size(0),size(1),size(2)可以看维度
+# print(a,a.shape,a.dtype,a.size())#属性不用加(),函数需要加(),size(0),size(1),size(2)可以看维度
 
 # 全是0/1的矩阵
 b=torch.zeros((3,3)).long()#后面可以转化类型
@@ -56,3 +56,38 @@ u=k.squeeze()
 #指定位置增加维度
 u=u.unsqueeze(2) #在第2个维度增加一个维度
 
+a=torch.tensor(10.).requires_grad_(True)  #RuntimeError: only Tensors of floating point dtype can require gradients
+b=torch.tensor(5.,requires_grad=True)
+c=a*b*1.5
+c.backward()
+# print("a.grad{}".format(a.grad))
+# print(f"b.grad{b.grad}")
+
+#Torch的模块
+import torch.nn as nn
+
+class Model(nn.Module):
+    def __init__(self):
+        super(Model,self).__init__()
+        self.conv1=nn.Conv2d(3,64,3)
+        self.relu1=nn.ReLU(True)
+    def forward(self,x):
+        x=self.conv1(x)
+        self.relu1(x)
+        return x
+
+model=Model()
+#查看有很多模块
+print(dir(model))
+print(model._modules) #得到模块字典，OrderedDict([('conv1', Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1))), ('relu1', ReLU(inplace=True))])
+
+for name,layer in model._modules.items():
+    print(name,layer)
+
+# 打印模型的参数,返回的是字典，可以用来更改权重、删除等
+model.state_dict()#模型的参数都在里面，什么weights,bias等等,就是{},OrderedDict()
+
+#获取conv1的权重
+conv1_weight=model.state_dict()["conv1.weight"]
+print(f"conv1{conv1_weight.shape}")
+print("conv1{}".format(conv1_weight.shape))
