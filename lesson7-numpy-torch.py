@@ -29,5 +29,30 @@ k=e[[0,2],:]#选取第0行，第2行所有列
 
 import torch
 
-a=torch.tensor([1,2,3])
-print(a,a.shape,a.dtype)
+a=torch.tensor([1,2,3],dtype=torch.float32)
+print(torch.tensor.__doc__)#查看使用方法
+
+print(a,a.shape,a.dtype,a.size())#属性不用加(),函数需要加(),size(0),size(1),size(2)可以看维度
+
+# 全是0/1的矩阵
+b=torch.zeros((3,3)).long()#后面可以转化类型
+b1=torch.ones((3,3))
+torch.eye(3,3)
+
+#使用list创建tensor
+c=torch.tensor([[2,3,2],[2,2,1]]).float()
+
+#取随机数
+d=torch.rand((3,3))
+
+#增加维度None   3,3->1,3,3,1
+k=d[None,:,:,None]
+# 简写在最前面加一个维度
+k=d[None]
+
+#去掉维度为1的维度，1,C,H,W
+u=k.squeeze()
+
+#指定位置增加维度
+u=u.unsqueeze(2) #在第2个维度增加一个维度
+
