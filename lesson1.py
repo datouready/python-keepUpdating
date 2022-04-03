@@ -33,6 +33,7 @@ b[:2]
 b[-5:-3]
 print(b[0:2])#左开右闭
 a="abcdef"
+1
 c=a[:-3]
 p=a.find("c")#返回c的位置
 array=a.split("c")#分割，返回["ab","def"]
