@@ -1,5 +1,4 @@
 # python-keepUpdating
-<<<<<<< HEAD
 python-keepUpdating
 git add 
 git commit
