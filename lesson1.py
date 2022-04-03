@@ -54,3 +54,4 @@ print(type(t))#类型为元组
 #如果将逗号去掉
 t=(1)
 print(type(t))#类型为int
+12
