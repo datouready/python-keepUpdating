@@ -84,7 +84,7 @@ print(model._modules) #得到模块字典，OrderedDict([('conv1', Conv2d(3, 64,
 for name,layer in model._modules.items():
     print(name,layer)
 
-# 打印模型的参数,返回的是字典，可以用来更改权重、删除等
+# 加载模型的参数,返回的是字典，可以用来更改权重、删除等、保存模型、获取模型都会用到
 model.state_dict()#模型的参数都在里面，什么weights,bias等等,就是{},OrderedDict()
 
 #获取conv1的权重
