@@ -24,6 +24,8 @@ e=d.copy()#复制一份
 #数组索引选择
 k=e[[0,2],:]#选取第0行，第2行所有列
 
+src=0x123
+np.frombuffer(src,dtype=np.floate32) #改变数据格式
 # torch.tensor基本操作
 #具有numpy的扩展功能，很多numpy没有实现的，tensor也实现了，torch主要在GPU，当然也支持在cpu上
 
