@@ -47,6 +47,13 @@ print(b)
 b.pop(-1)
 print(b)
 
+line = "abcde"
+line[:-1]
+#结果为：'abcd'
+line = "abcde"
+line[::-1]
+#结果为：'edcba'
+
 #dict
 m=dict()
 m={}
